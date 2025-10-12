@@ -44,9 +44,9 @@ const MemberCard = ({ m }) => {
         [
           React.createElement('div', { key: 'n', className: 'text-lg font-semibold' }, m.name),
           React.createElement('div', { key: 'p', className: 'text-sm text-gray-600' }, m.program || m.position || ''),
-          React.createElement('div', { key: 'y', className: 'text-sm text-gray-600' }, m.entryYear ? `Año de ingreso: ${m.entryYear}` : ''),
-          React.createElement('div', { key: 's', className: 'text-sm' }, ['Estado: ', React.createElement('span', { key: 'ss', className: 'font-medium' }, m.status || '')]),
-          m.thesis ? React.createElement('div', { key: 't', className: 'text-sm text-gray-700 mt-2' }, ['Tesis: ', m.thesis]) : null
+          React.createElement('div', { key: 'y', className: 'text-sm text-gray-600' }, m.entryYear ? `Entry Year: ${m.entryYear}` : ''),
+          React.createElement('div', { key: 's', className: 'text-sm' }, ['Status: ', React.createElement('span', { key: 'ss', className: 'font-medium' }, m.status || '')]),
+          m.thesis ? React.createElement('div', { key: 't', className: 'text-sm text-gray-700 mt-2' }, ['Thesis: ', m.thesis]) : null
         ]
       )
     ]
