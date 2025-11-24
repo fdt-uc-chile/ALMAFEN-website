@@ -1,102 +1,159 @@
 import React from 'https://esm.sh/react@18.3.1';
-import { HOME } from '../data/home.js';
 import { SITE } from '../data/site.js';
+import { PUBLICATIONS } from '../data/publications.js';
+import { NEWS } from '../data/news.js';
 
 function Hero() {
   return React.createElement(
     'section',
-    { className: 'relative' },
+    { className: 'relative h-[500px] flex items-center justify-center overflow-hidden' },
     [
-  React.createElement('img', { key: 'img', src: SITE.heroImage, alt: 'hero', className: 'h-72 w-full object-cover' }),
-      React.createElement('div', { key: 'overlay', className: 'absolute inset-0 bg-gradient-to-t from-black/60 to-black/10' }),
+      React.createElement('img', { key: 'img', src: SITE.heroImage, alt: 'hero', className: 'absolute inset-0 h-full w-full object-cover' }),
+      React.createElement('div', { key: 'overlay', className: 'absolute inset-0 bg-black/50' }),
       React.createElement(
         'div',
-        { key: 'textwrap', className: 'absolute inset-0 flex items-end' },
-        React.createElement(
-          'div',
-          { className: 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8' },
-          [
-            React.createElement('h1', { key: 'h1', className: 'text-3xl sm:text-4xl font-bold text-white drop-shadow' }, SITE.labName),
-            React.createElement('p', { key: 'p', className: 'text-white/90 mt-1' }, SITE.institution)
-          ]
-        )
+        { key: 'textwrap', className: 'relative z-10 text-center max-w-4xl px-4' },
+        [
+          React.createElement('h1', { key: 'h1', className: 'text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight' }, SITE.labName),
+          React.createElement('p', { key: 'p', className: 'text-xl md:text-2xl text-white/90 font-light' }, SITE.institution)
+        ]
       )
     ]
   );
 }
 
 export function Home() {
+  // Obtener las últimas 3 publicaciones ordenadas por año
+  const latestPapers = [...PUBLICATIONS.publications]
+    .sort((a, b) => b.year - a.year)
+    .slice(0, 3)
+    .map(p => ({
+      title: p.title,
+      venue: `${p.journal} (${p.year})`,
+      url: p.url
+    }));
+
+  // Obtener las últimas 3 noticias ordenadas por fecha
+  const latestNews = [...NEWS.articles]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 3)
+    .map(n => ({
+      id: n.id,
+      title: n.title,
+      date: n.date,
+      summary: n.summary,
+      url: `#/news/${n.id}`
+    }));
+
   return React.createElement(
     'main',
     null,
     [
       React.createElement(Hero, { key: 'hero' }),
+      
+      // Sección Sobre Nosotros - Diseño limpio y centrado
       React.createElement(
         'section',
-        { key: 'content', className: 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-3 gap-8' },
-        [
+        { key: 'about', className: 'py-20 bg-white' },
+        React.createElement(
+          'div',
+          { className: 'mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center' },
+          [
+            React.createElement('h2', { key: 'h2', className: 'text-3xl font-bold mb-8 text-gray-900' }, 'Sobre nosotros'),
+            React.createElement('p', { key: 'p', className: 'text-xl text-gray-600 leading-relaxed font-light' }, SITE.about)
+          ]
+        )
+      ),
+
+      // Sección Actualizaciones - Diseño tipo lista/magazine sin tarjetas
+      React.createElement(
+        'section',
+        { key: 'updates', className: 'py-20 bg-gray-50' },
+        React.createElement(
+          'div',
+          { className: 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8' },
           React.createElement(
             'div',
-            { key: 'about', className: 'md:col-span-2' },
+            { className: 'grid md:grid-cols-2 gap-16' },
             [
-              React.createElement('h2', { key: 'h2-qs', className: 'text-2xl font-semibold mb-3' }, 'About Us'),
-              React.createElement('p', { key: 'p-qs', className: 'text-gray-700' }, SITE.shortAbout),
-              React.createElement('h3', { key: 'h3-proy', className: 'text-xl font-semibold mt-6 mb-2' }, 'Projects Ongoing'),
-              React.createElement('p', { key: 'p-proy', className: 'text-gray-700' }, SITE.projections)
-            ]
-          ),
-          React.createElement(
-            'aside',
-            { key: 'aside', className: 'md:col-span-1' },
-            [
-                // Latest articles
-                React.createElement('h2', { key: 'h2-latest', className: 'text-2xl font-semibold mb-3' }, 'Latest Articles'),
-                React.createElement(
+              // Columna Noticias
+              React.createElement(
                 'div',
-                { key: 'cards', className: 'space-y-4 mb-6' },
-                HOME.latestPapers.map((p, i) =>
-                  React.createElement(
-                  'a',
-                  { key: i, href: p.url, target: '_blank', rel: 'noopener noreferrer', className: 'block group' },
+                { key: 'news-col' },
+                [
+                  React.createElement('h2', { key: 'h2-news', className: 'text-2xl font-bold mb-8 text-gray-900 border-b-2 border-blue-600 pb-2 inline-block' }, 'Últimas Noticias'),
                   React.createElement(
                     'div',
-                    { className: 'rounded-2xl overflow-hidden shadow hover:shadow-md transition' },
+                    { key: 'news-list', className: 'space-y-8' },
                     [
-                    React.createElement('img', { key: 'cov', src: p.cover, alt: p.title, className: 'h-32 w-full object-cover' }),
-                    React.createElement(
-                      'div',
-                      { key: 'txt', className: 'p-3' },
-                      [
-                      React.createElement('div', { key: 't', className: 'font-medium group-hover:underline' }, p.title),
-                      React.createElement('div', { key: 'v', className: 'text-xs text-gray-500 mt-1' }, p.venue)
-                      ]
-                    )
+                      ...latestNews.map((n, i) =>
+                        React.createElement(
+                          'div',
+                          { key: i, className: 'group' },
+                          [
+                            React.createElement('div', { key: 'date', className: 'text-sm font-bold text-blue-600 uppercase tracking-wider mb-1' }, 
+                              new Date(n.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })
+                            ),
+                            React.createElement(
+                              'a',
+                              { key: 'title', href: n.url, className: 'block text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2' },
+                              n.title
+                            ),
+                            React.createElement('p', { key: 'summary', className: 'text-gray-600 leading-relaxed line-clamp-2' }, n.summary)
+                          ]
+                        )
+                      ),
+                      React.createElement(
+                        'a',
+                        { key: 'viewall', href: '#/news', className: 'inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 mt-4 group' },
+                        ['Ver todas las noticias', React.createElement('span', { key: 'arrow', className: 'ml-2 transform group-hover:translate-x-1 transition-transform' }, '→')]
+                      )
                     ]
                   )
-                  )
-                )
-                ),
+                ]
+              ),
 
-              // Noticias (nuevo)
-              HOME.news && React.createElement('h3', { key: 'h2-news', className: 'text-2xl font-semibold mb-3 mt-4' }, 'Latest News'),
-              HOME.news && React.createElement(
+              // Columna Publicaciones
+              React.createElement(
                 'div',
-                { key: 'news', className: 'space-y-3' },
-                HOME.news.items.map((n, i) =>
+                { key: 'pubs-col' },
+                [
+                  React.createElement('h2', { key: 'h2-pubs', className: 'text-2xl font-bold mb-8 text-gray-900 border-b-2 border-blue-600 pb-2 inline-block' }, 'Investigación Reciente'),
                   React.createElement(
-                    'a',
-                    { key: i, href: n.url || '#', className: 'block p-3 rounded-lg bg-white border hover:shadow-sm' },
+                    'div',
+                    { key: 'pubs-list', className: 'space-y-6' },
                     [
-                      React.createElement('div', { key: 'nt', className: 'font-medium' }, n.title),
-                      React.createElement('div', { key: 'nd', className: 'text-xs text-gray-500' }, n.date),
-                      React.createElement('div', { key: 'ns', className: 'text-sm text-gray-700 mt-1' }, n.summary)
+                      ...latestPapers.map((p, i) =>
+                        React.createElement(
+                          'a',
+                          { key: i, href: p.url, target: '_blank', rel: 'noopener noreferrer', className: 'flex gap-4 group items-start' },
+                          [
+                            React.createElement('div', { key: 'icon', className: 'flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors' }, 
+                              React.createElement('span', { className: 'text-xl' }, '📄')
+                            ),
+                            React.createElement(
+                              'div',
+                              { key: 'content' },
+                              [
+                                React.createElement('h3', { key: 't', className: 'font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight mb-1' }, p.title),
+                                React.createElement('p', { key: 'v', className: 'text-sm text-gray-500' }, p.venue)
+                              ]
+                            )
+                          ]
+                        )
+                      ),
+                      React.createElement(
+                        'a',
+                        { key: 'viewall', href: '#/pubs', className: 'inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 mt-6 group' },
+                        ['Ver todas las publicaciones', React.createElement('span', { key: 'arrow', className: 'ml-2 transform group-hover:translate-x-1 transition-transform' }, '→')]
+                      )
                     ]
                   )
-                )
+                ]
               )
             ]
           )
-        ]
+        )
       )
     ]
   );

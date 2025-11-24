@@ -6,7 +6,7 @@ const MemberCard = ({ m }) => {
   if (m.position) {
     return React.createElement(
       'div',
-      { className: 'bg-white rounded-2xl border shadow-sm overflow-hidden' },
+      { className: 'bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1' },
       [
         React.createElement('img', { key: 'img', src: m.photo, alt: m.name, className: 'h-44 w-full object-cover' }),
         React.createElement(
@@ -35,7 +35,7 @@ const MemberCard = ({ m }) => {
   // Fallback: tarjeta simple para otros miembros
   return React.createElement(
     'div',
-    { className: 'bg-white rounded-2xl border shadow-sm overflow-hidden' },
+    { className: 'bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1' },
     [
       React.createElement('img', { key: 'img', src: m.photo, alt: m.name, className: 'h-44 w-full object-cover' }),
       React.createElement(
@@ -44,9 +44,9 @@ const MemberCard = ({ m }) => {
         [
           React.createElement('div', { key: 'n', className: 'text-lg font-semibold' }, m.name),
           React.createElement('div', { key: 'p', className: 'text-sm text-gray-600' }, m.program || m.position || ''),
-          React.createElement('div', { key: 'y', className: 'text-sm text-gray-600' }, m.entryYear ? `Entry Year: ${m.entryYear}` : ''),
-          React.createElement('div', { key: 's', className: 'text-sm' }, ['Status: ', React.createElement('span', { key: 'ss', className: 'font-medium' }, m.status || '')]),
-          m.thesis ? React.createElement('div', { key: 't', className: 'text-sm text-gray-700 mt-2' }, ['Thesis: ', m.thesis]) : null
+          React.createElement('div', { key: 'y', className: 'text-sm text-gray-600' }, m.entryYear ? `Año de ingreso: ${m.entryYear}` : ''),
+          React.createElement('div', { key: 's', className: 'text-sm' }, ['Estado: ', React.createElement('span', { key: 'ss', className: 'font-medium' }, m.status || '')]),
+          m.thesis ? React.createElement('div', { key: 't', className: 'text-sm text-gray-700 mt-2' }, ['Tesis: ', m.thesis]) : null
         ]
       )
     ]
@@ -90,11 +90,11 @@ export function Team() {
     'main',
     { className: 'mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10' },
     [
-      React.createElement('h2', { key: 'h2', className: 'text-3xl font-bold mb-6 text-center' }, 'People'),
-      React.createElement(SectionCards, { key: 'pi', title: 'Principal Investigators', items: TEAMS.members.pis }),
-      React.createElement(SectionCards, { key: 'pd', title: 'Postdoctoral Associates', items: TEAMS.members.postdocs }),
-      React.createElement(SectionCards, { key: 'phd', title: 'Doctorate Students', items: TEAMS.members.phd }),
-      React.createElement(SectionCards, { key: 'msc', title: 'Master Students', items: TEAMS.members.masters }),
+      React.createElement('h2', { key: 'h2', className: 'text-3xl font-bold mb-6 text-center' }, 'Equipo'),
+      React.createElement(SectionCards, { key: 'pi', title: 'Investigadores Principales', items: TEAMS.members.pis }),
+      React.createElement(SectionCards, { key: 'pd', title: 'Postdoctorales', items: TEAMS.members.postdocs }),
+      React.createElement(SectionCards, { key: 'phd', title: 'Estudiantes de Doctorado', items: TEAMS.members.phd }),
+      React.createElement(SectionCards, { key: 'msc', title: 'Estudiantes de Magíster', items: TEAMS.members.masters }),
       React.createElement(SectionList, { key: 'al', title: 'Alumni', items: TEAMS.members.alumni })
     ]
   );

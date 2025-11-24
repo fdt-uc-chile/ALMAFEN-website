@@ -19,20 +19,20 @@ export function Apply() {
           }
         });
         if (res.ok) {
-          alert('Thank you — your application has been sent successfully.');
+          alert('¡Gracias! Tu postulación ha sido enviada exitosamente.');
           form.reset();
         } else {
-          let msg = res.statusText || 'Submission failed';
+          let msg = res.statusText || 'Error al enviar';
           try {
             const data = await res.json();
             if (data.error) msg = data.error;
           } catch (err) {
             // ignore
           }
-          alert('Error sending the application: ' + msg);
+          alert('Error al enviar la postulación: ' + msg);
         }
       } catch (err) {
-        alert('Network error while sending the application: ' + err.message);
+        alert('Error de red al enviar la postulación: ' + err.message);
       }
     })();
   };
@@ -41,51 +41,51 @@ export function Apply() {
     'main',
     { className: 'mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10' },
     [
-      React.createElement('h2', { key: 'h2', className: 'text-3xl font-bold mb-2' }, 'MSc/PhD Applications'),
-      React.createElement('p', { key: 'p', className: 'text-gray-700 mb-6' }, 'Complete the form to apply to the laboratory. Attach links to CV. Your application will be sent by email to the team.'),
+      React.createElement('h2', { key: 'h2', className: 'text-3xl font-bold mb-2 text-center' }, 'Postulaciones MSc/PhD'),
+      React.createElement('p', { key: 'p', className: 'text-gray-600 mb-8 text-center' }, 'Completa el formulario para postular al laboratorio. Adjunta enlaces a tu CV. Tu postulación será enviada por correo al equipo.'),
       React.createElement(
         'form',
-        { key: 'f', onSubmit: handleSubmit, className: 'space-y-4 bg-white border rounded-2xl p-6 shadow-sm' },
+        { key: 'f', onSubmit: handleSubmit, className: 'space-y-5 bg-white border rounded-2xl p-8 shadow-lg' },
         [ 
           React.createElement('div', { key: 'n' }, [
-            React.createElement('label', { className: 'block text-sm font-medium mb-1' }, 'Full name'),
-            React.createElement('input', { name: 'name', required: true, className: 'w-full rounded-lg border px-3 py-2' })
+            React.createElement('label', { className: 'block text-sm font-semibold mb-2 text-gray-700' }, 'Nombre completo'),
+            React.createElement('input', { name: 'name', required: true, className: 'w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition' })
           ]),
-          React.createElement('div', { key: 'grid1', className: 'grid sm:grid-cols-2 gap-4' }, [
+          React.createElement('div', { key: 'grid1', className: 'grid sm:grid-cols-2 gap-5' }, [
             React.createElement('div', { key: 'e' }, [
-              React.createElement('label', { className: 'block text-sm font-medium mb-1' }, 'Email'),
-              React.createElement('input', { type: 'email', name: 'email', required: true, className: 'w-full rounded-lg border px-3 py-2' })
+              React.createElement('label', { className: 'block text-sm font-semibold mb-2 text-gray-700' }, 'Correo electrónico'),
+              React.createElement('input', { type: 'email', name: 'email', required: true, className: 'w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition' })
             ]),
             React.createElement('div', { key: 'prog' }, [
-              React.createElement('label', { className: 'block text-sm font-medium mb-1' }, 'Program applying to'),
-              React.createElement('select', { name: 'program', required: true, className: 'w-full rounded-lg border px-3 py-2 bg-white' }, [
-                React.createElement('option', { key: 'sel', value: '' }, 'Select'),
-                React.createElement('option', { key: 'msc', value: 'MSc' }, 'M.Sc.'),
-                React.createElement('option', { key: 'phd', value: 'PhD' }, 'Ph.D.')
+              React.createElement('label', { className: 'block text-sm font-semibold mb-2 text-gray-700' }, 'Programa al que postula'),
+              React.createElement('select', { name: 'program', required: true, className: 'w-full rounded-lg border border-gray-300 px-4 py-2.5 bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition' }, [
+                React.createElement('option', { key: 'sel', value: '' }, 'Seleccionar'),
+                React.createElement('option', { key: 'msc', value: 'MSc' }, 'Magíster'),
+                React.createElement('option', { key: 'phd', value: 'PhD' }, 'Doctorado')
               ])
             ])
           ]),
-          React.createElement('div', { key: 'grid2', className: 'grid sm:grid-cols-2 gap-4' }, [
+          React.createElement('div', { key: 'grid2', className: 'grid sm:grid-cols-2 gap-5' }, [
             React.createElement('div', { key: 'ub' }, [
-              React.createElement('label', { className: 'block text-sm font-medium mb-1' }, 'Country/city of residence'),
-              React.createElement('input', { name: 'from', className: 'w-full rounded-lg border px-3 py-2' })
+              React.createElement('label', { className: 'block text-sm font-semibold mb-2 text-gray-700' }, 'País/ciudad de residencia'),
+              React.createElement('input', { name: 'from', className: 'w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition' })
             ]),
             React.createElement('div', { key: 'disp' }, [
-              React.createElement('label', { className: 'block text-sm font-medium mb-1' }, 'Availability (month/year)'),
-              React.createElement('input', { name: 'availability', className: 'w-full rounded-lg border px-3 py-2' })
+              React.createElement('label', { className: 'block text-sm font-semibold mb-2 text-gray-700' }, 'Disponibilidad (mes/año)'),
+              React.createElement('input', { name: 'availability', placeholder: 'Ej: Marzo 2026', className: 'w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition' })
             ])
           ]),
           React.createElement('div', { key: 'int' }, [
-            React.createElement('label', { className: 'block text-sm font-medium mb-1' }, 'Interests/Research areas'),
-            React.createElement('textarea', { name: 'interests', rows: 4, className: 'w-full rounded-lg border px-3 py-2' })
+            React.createElement('label', { className: 'block text-sm font-semibold mb-2 text-gray-700' }, 'Intereses / Áreas de investigación'),
+            React.createElement('textarea', { name: 'interests', rows: 4, className: 'w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition', placeholder: 'Describe tus áreas de interés...' })
           ]),
           React.createElement('div', { key: 'link' }, [
-            React.createElement('label', { className: 'block text-sm font-medium mb-1' }, 'Links (CV, GitHub, Google Scholar, etc.)'),
-            React.createElement('input', { name: 'links', placeholder: 'https://...', className: 'w-full rounded-lg border px-3 py-2' })
+            React.createElement('label', { className: 'block text-sm font-semibold mb-2 text-gray-700' }, 'Enlaces (CV, GitHub, Google Scholar, etc.)'),
+            React.createElement('input', { name: 'links', placeholder: 'https://...', className: 'w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition' })
           ]),
-          React.createElement('div', { key: 'foot', className: 'flex items-center justify-between' }, [
-            React.createElement('p', { key: 'note', className: 'text-xs text-gray-500' }, `Responses will be sent to: ${APPLY.contactEmail}`),
-            React.createElement('button', { key: 'btn', type: 'submit', className: 'rounded-xl bg-blue-600 text-white px-4 py-2 font-medium hover:bg-blue-700' }, 'Send Application')
+          React.createElement('div', { key: 'foot', className: 'flex flex-col sm:flex-row items-center justify-between gap-3 pt-2' }, [
+            React.createElement('p', { key: 'note', className: 'text-xs text-gray-500' }, `Las respuestas se enviarán a: ${APPLY.contactEmail}`),
+            React.createElement('button', { key: 'btn', type: 'submit', className: 'w-full sm:w-auto rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 font-semibold hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200' }, 'Enviar Postulación')
           ])
         ]
       )

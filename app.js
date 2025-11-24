@@ -8,6 +8,8 @@ import { Home } from './pages/Home.js';
 import { Team } from './pages/Teams.js';
 import { Publications } from './pages/Publications.js';
 import { Apply } from './pages/Apply.js';
+import { News } from './pages/News.js';
+import { NewsDetail } from './pages/NewsDetail.js';
 
 function Footer() {
   return h(
@@ -26,11 +28,20 @@ function Footer() {
 
 function App() {
   const [tab, setTab] = useState('home');
+  const [newsId, setNewsId] = useState(null);
 
   useEffect(() => {
     const onHash = () => {
-      const route = window.location.hash.replace('#/', '') || 'home';
-      setTab(route);
+      const hash = window.location.hash.replace('#/', '') || 'home';
+      // Detectar si es una ruta de noticia individual (news/123)
+      const newsMatch = hash.match(/^news\/(\d+)$/);
+      if (newsMatch) {
+        setTab('news-detail');
+        setNewsId(newsMatch[1]);
+      } else {
+        setTab(hash);
+        setNewsId(null);
+      }
     };
     window.addEventListener('hashchange', onHash);
     onHash();
@@ -51,7 +62,9 @@ function App() {
         tab === 'home' && h(Home),
         tab === 'team' && h(Team),
         tab === 'pubs' && h(Publications),
-        tab === 'apply' && h(Apply)
+        tab === 'apply' && h(Apply),
+        tab === 'news' && h(News),
+        tab === 'news-detail' && h(NewsDetail, { articleId: newsId })
       ]),
   h(Footer, { key: 'footer' })
     ]
