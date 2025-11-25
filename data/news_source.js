@@ -1,60 +1,63 @@
 export const rawNews = [
   {
     id: 1,
-    title: 'Innovation in Transport Phenomena course',
+    title: 'Innovación en el curso de Fenómenos de Transporte',
     date: '2025-10-15',
     image: './img/news1.jpg',
-    summary: 'Join our seminar on innovative strategies to enhance the connection between transport phenomena and sustainable solutions in Chile.',
-    link: '',
-    content: `We are excited to announce a new seminar focused on innovative teaching methodologies for Transport Phenomena courses.
+    summary: 'Únase a nuestro seminario sobre estrategias innovadoras para mejorar la conexión entre los fenómenos de transporte y las soluciones sostenibles en Chile.',
+    link: 'https://github.com/fdt-uc-chile/Innovacion-en-docencia-FdT',
+    content: `Nos complace anunciar un nuevo seminario centrado en metodologías de enseñanza innovadoras para cursos de Fenómenos de Transporte.
 
-This seminar will explore cutting-edge approaches to connect theoretical concepts with practical applications in sustainable engineering solutions, particularly relevant to Chile's industrial challenges.
+Este seminario explorará enfoques de vanguardia para conectar conceptos teóricos con aplicaciones prácticas en soluciones de ingeniería sostenible, particularmente relevantes para los desafíos industriales de Chile.
 
-# Key Topics:
-- Modern computational tools for transport phenomena
-- Case studies from Chilean industry
-- Sustainable solutions and green engineering
-- Interactive learning methodologies
+# Temas Clave:
+- Herramientas computacionales modernas para fenómenos de transporte
+- Estudios de caso de la industria chilena
+- Soluciones sostenibles e ingeniería verde
+- Metodologías de aprendizaje interactivo
 
-The event will take place at our facilities and is open to faculty members, graduate students, and industry professionals interested in education innovation.`
+El evento tendrá lugar en nuestras instalaciones y está abierto a miembros de la escuela, estudiantes de postgrado y profesores interesados en la innovación educativa.`
+  },
+  {
+    id: 2,
+    title: 'Nueva publicación en la revista Energy',
+    date: '2025-07-26',
+    image: './img/img_Huerta2025.svg',
+    summary: 'Nuestra última investigación sobre un modelo 1-D para la evaporación no isobárica de líquidos criogénicos en la prestigiosa revista Energy.',
+    link: 'https://doi.org/10.1016/j.est.2025.117913',
+    content: `Estamos orgullosos de anunciar que nuestro artículo de investigación sobre el desarrollo de un modelo 1-D para la evaporación no isobárica de líquidos criogénicos ha sido publicado en la revista Energy.
+
+Este trabajo presenta un modelo realista para predecir el la estratificación térmica y el aumento de presión de líquidos criogénicos almacenados en estanques no isobáricos, lo cual es crucial para el diseño y operación de instalaciones de GNL, LN2, LH2, entre otros.
+
+# Hallazgos Clave:
+- Se desarrolló un modelo 1-D para la evaporación no isobárica de criógenos almacenados
+- Se asume que la evaporación en las paredes y el enfriamiento interfacial dominan el aumento de presión
+- Después del ajuste de parámetros, el modelo 1-D reproduce datos experimentales tan bien como el modelo CFD
+- El modelo puede simular muchas horas de evaporación no isobárica en 10 segundos
+- El modelo es adecuado para el control basado en modelos de tanques de almacenamiento criogénico
+
+Esta investigación liderada por Felipe Huerta se realizó en colaboración Velisa Vesovic, académico de Imperial College London.`
   },
   {
     id: 3,
-    title: 'New publication in Energy journal',
-    date: '2025-08-20',
-    image: './img/news3.jpg',
-    summary: 'Our latest research on LNG weathering has been published in the prestigious Energy journal.',
-    link: 'https://doi.org/10.1016/j.energy.2019.02.174',
-    content: `We are proud to announce that our research paper on vapour phase heat transfer modeling for LNG weathering has been published in Energy journal.
-
-This work presents a realistic model for predicting the weathering behavior of liquefied natural gas (LNG) stored in large tanks, which is crucial for the design and operation of LNG facilities.
-
-# Key Findings:
-- Improved accuracy in predicting boil-off gas rates
-- Better understanding of thermal stratification effects
-- Practical guidelines for tank design optimization
-
-This research was conducted in collaboration with industry partners and represents a significant advance in the field of cryogenic storage systems.`
-  },
-  {
-    id: 4,
-    title: 'Workshop on CFD applications in cryogenics',
+    title: 'Taller sobre aplicaciones de CFD en criogenia',
     date: '2025-07-10',
     image: './img/news4.jpg',
-    summary: 'Successfully conducted a workshop on computational fluid dynamics applications for cryogenic systems.',
+    summary: 'Se realizó con éxito un taller sobre aplicaciones de dinámica de fluidos computacional para sistemas criogénicos.',
     link: '',
-    content: `Last week, our research group organized a successful workshop on CFD applications in cryogenic engineering, attended by over 50 participants from academia and industry.
+    content: `La semana pasada, nuestro grupo de investigación organizó un exitoso taller sobre aplicaciones de CFD en ingeniería criogénica.
 
-The workshop featured hands-on sessions using OpenFOAM and ANSYS Fluent, focusing on modeling challenges specific to low-temperature systems.
+El taller contó con sesiones prácticas utilizando OpenFOAM, centrándose en los desafíos de modelado específicos para sistemas de baja temperatura, y diseño de solvers para modelar transferencia de masa y energía.
 
-# Workshop Highlights:
-- Fundamentals of cryogenic fluid flow modeling
-- Phase change phenomena and boiling heat transfer
-- Turbulence modeling in stratified flows
-- Best practices for mesh generation and boundary conditions
+# Destacados del Taller:
+- Fundamentos del modelado de flujo de fluidos criogénicos
+- Implementación de modelos elementales de balance de masa y energía
+- Modelado de turbulencia en flujos estratificados
+- Modelado de estratificación térmica
+- Mejores prácticas para la generación de mallas y condiciones de contorno
 
-Participants received certificates and access to tutorial materials. We plan to organize similar events in the future.
+Los participantes recibieron material de apoyo y acceso a materiales tutoriales. Planeamos organizar eventos similares en el futuro.
 
-Thank you to all attendees and our industry sponsors for making this event possible!`
+¡Gracias a todos los asistentes por participar en este evento!`
   }
 ];

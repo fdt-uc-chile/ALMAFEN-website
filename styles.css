@@ -67,3 +67,21 @@ html {
   font-weight: 700;
   color: #111827;
 }
+
+.news-image-container {
+  width: 100%;
+  height: 340px;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.news-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.news-image-container.news-list {
+  height: 200px;
+}

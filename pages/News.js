@@ -9,12 +9,14 @@ function NewsCard({ article, onClick }) {
       onClick: () => onClick(article.id)
     },
     [
-      React.createElement('img', {
-        key: 'img',
-        src: article.image,
-        alt: article.title,
-        className: 'w-full h-48 object-cover'
-      }),
+      React.createElement(
+        'div',
+        { key: 'img-container', className: 'news-image-container news-list' },
+        React.createElement('img', {
+          src: article.image,
+          alt: article.title
+        })
+      ),
       React.createElement(
         'div',
         { key: 'content', className: 'p-6' },

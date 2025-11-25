@@ -60,12 +60,15 @@ export function NewsDetail({ articleId, onBack }) {
         { key: 'article', className: 'mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12' },
         [
           // Featured image
-          React.createElement('img', {
-            key: 'img',
-            src: article.image,
-            alt: article.title,
-            className: 'w-full h-96 object-cover rounded-2xl shadow-2xl mb-8'
-          }),
+          React.createElement('div', {
+            key: 'img-container',
+            className: 'news-image-container mb-8 rounded-2xl shadow-2xl'
+          },
+            React.createElement('img', {
+              src: article.image,
+              alt: article.title
+            })
+          ),
           // Date
           React.createElement(
             'div',
