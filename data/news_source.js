@@ -43,7 +43,7 @@ Esta investigación liderada por Felipe Huerta se realizó en colaboración Veli
 {
     id: 3,
     title: 'Workshop OpenFOAM para Ingeniería Química: 3ra versión',
-    date: '2025-12-27',
+    date: '2024-12-27',
     image: './img/openfoam-workshop.png',
     summary: 'Junto a Catalina Pino-Muñoz de Imperial College London realizamos la tercera versión de nuestro workshop gratuito de OpenFOAM para Ingeniería Química en la UC.',
     link: 'https://www.linkedin.com/posts/felipehuerta_openfoam-activity-7288629527121965056-iNRD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADq-pCEBkV4HUSJyU6U3LRtm9O5AyDcdl7g',
@@ -69,7 +69,7 @@ Y las clases que publicamos de manera gratuita en:
 {
     id: 4,
     title: 'Nuevo MOOC: Transferencia de momentum, calor y masa computacional',
-    date: '2025-10-16',
+    date: '2024-03-10',
     image: './img/coursera_mooc.png',
     summary: 'Inscríbete gratis al curso en línea en Coursera sobre transferencia de momentum, calor y masa computacional.',
     link: 'https://www.coursera.org/learn/transferencia-de-momentum-calor-y-masa-computacional/?action=enroll&utm_campaign=opencourse.yxcumJ42Ee22Ew5lHuzHCw.launch&utm_medium=email&utm_source=other',
