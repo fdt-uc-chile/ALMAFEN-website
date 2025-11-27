@@ -8,26 +8,26 @@ const MemberCard = ({ m }) => {
       'div',
       { className: 'bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1' },
       [
-        React.createElement('img', { key: 'img', src: m.photo, alt: m.name, className: 'h-44 w-full object-cover' }),
+      React.createElement('img', { key: 'img', src: m.photo, alt: m.name, className: 'h-80 w-full object-cover' }),
+      React.createElement(
+        'div',
+        { key: 'txt', className: 'p-4 space-y-1' },
+        [
+        React.createElement('div', { key: 'n', className: 'text-lg font-semibold text-center' }, m.name),
+        React.createElement('div', { key: 'pos', className: 'text-sm text-gray-600 text-center' }, m.position),
+        React.createElement('div', { key: 'dept', className: 'text-sm text-gray-600 text-center' }, m.department),
+        React.createElement('div', { key: 'uni', className: 'text-sm text-gray-600 text-center' }, m.university),
         React.createElement(
           'div',
-          { key: 'txt', className: 'p-4 space-y-1' },
+          { key: 'links', className: 'flex items-center gap-3 mt-2 justify-center' },
           [
-            React.createElement('div', { key: 'n', className: 'text-lg font-semibold text-center' }, m.name),
-            React.createElement('div', { key: 'pos', className: 'text-sm text-gray-600 text-center' }, m.position),
-            React.createElement('div', { key: 'dept', className: 'text-sm text-gray-600 text-center' }, m.department),
-            React.createElement('div', { key: 'uni', className: 'text-sm text-gray-600 text-center' }, m.university),
-            React.createElement(
-              'div',
-              { key: 'links', className: 'flex items-center gap-3 mt-2 justify-center' },
-              [
-                m.email && React.createElement('a', { key: 'e', href: `mailto:${m.email}`, className: 'text-blue-600 hover:underline', title: 'Email' }, '✉️'),
-                m.linkedin && React.createElement('a', { key: 'l', href: m.linkedin, target: '_blank', rel: 'noopener noreferrer', className: 'text-blue-600 hover:underline', title: 'LinkedIn' }, 'in')
-              ]
-            ),
-            m.description && React.createElement('div', { key: 'desc', className: 'text-sm text-gray-700 mt-2' }, m.description)
+          m.email && React.createElement('a', { key: 'e', href: `mailto:${m.email}`, className: 'text-blue-600 hover:underline', title: 'Email' }, '✉️'),
+          m.linkedin && React.createElement('a', { key: 'l', href: m.linkedin, target: '_blank', rel: 'noopener noreferrer', className: 'text-blue-600 hover:underline', title: 'LinkedIn' }, 'in')
           ]
-        )
+        ),
+        m.description && React.createElement('div', { key: 'desc', className: 'text-sm text-gray-700 mt-2' }, m.description)
+        ]
+      )
       ]
     );
   }
@@ -37,7 +37,7 @@ const MemberCard = ({ m }) => {
     'div',
     { className: 'bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1' },
     [
-      React.createElement('img', { key: 'img', src: m.photo, alt: m.name, className: 'h-44 w-full object-cover' }),
+      React.createElement('img', { key: 'img', src: m.photo, alt: m.name, className: 'w-full h-80 object-contain bg-gray-100'}),
       React.createElement(
         'div',
         { key: 'txt', className: 'p-4 space-y-1' },
@@ -95,6 +95,7 @@ export function Team() {
       React.createElement(SectionCards, { key: 'pd', title: 'Postdoctorales', items: TEAMS.members.postdocs }),
       React.createElement(SectionCards, { key: 'phd', title: 'Estudiantes de Doctorado', items: TEAMS.members.phd }),
       React.createElement(SectionCards, { key: 'msc', title: 'Estudiantes de Magíster', items: TEAMS.members.masters }),
+      React.createElement(SectionCards, { key: 'eng', title: 'Ingeniero de Software', items: TEAMS.members.software }),
       React.createElement(SectionList, { key: 'al', title: 'Alumni', items: TEAMS.members.alumni })
     ]
   );
