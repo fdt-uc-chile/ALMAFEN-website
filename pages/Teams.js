@@ -92,7 +92,7 @@ export function Team() {
     [
       React.createElement('h2', { key: 'h2', className: 'text-3xl font-bold mb-6 text-center' }, 'Equipo'),
       React.createElement(SectionCards, { key: 'pi', title: 'Investigadores Principales', items: TEAMS.members.pis }),
-      React.createElement(SectionCards, { key: 'pd', title: 'Postdoctorales', items: TEAMS.members.postdocs }),
+      React.createElement(SectionCards, { key: 'co', title: 'Colaboradores', items: TEAMS.members.colaborators }),
       React.createElement(SectionCards, { key: 'phd', title: 'Estudiantes de Doctorado', items: TEAMS.members.phd }),
       React.createElement(SectionCards, { key: 'msc', title: 'Estudiantes de Magíster', items: TEAMS.members.masters }),
       React.createElement(SectionCards, { key: 'eng', title: 'Ingeniero de Software', items: TEAMS.members.software }),
